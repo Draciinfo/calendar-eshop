@@ -163,16 +163,9 @@ Organizační tým projektů Draci.info""".format(year=year))
                 u"Kalendáře Draci.info %s budou již brzy" % year,
             u"""Krásný den!
 
-Omlouváme se za zpoždění, kalendáře jsou již zadané k tisku a začneme je rozesílat hned jak budou hotové, tedy v průběhu příštího týdne.
-Zatím se můžete pokochat alespoň testovacími tisky:
+Omlouváme se za zpoždění, museli jsme učinit pár změn s naším letošním tiskařem, ovšem kalendáře jsou již zadané k tisku a začneme je rozesílat hned jak budou hotové, tedy v průběhu příštích dvou týdnů.
 
-<img src="https://kalendar.draci.info/static/img/kalendar2019_testovaci.jpg" style="width: 100%;" />
-
-Máme pro Vás také jednu novinku - stolní dračí kalendář!
-
-<img src="https://kalendar.draci.info/static/img/kalendar2019_stolni.jpg" style="width: 100%;" />
-
-Mějte prosím trpělivost, do Vánoc vám kalendáře Draci.info určitě stihneme dodat :)
+Děkujeme Vám za trpělivost, uděláme vše pro to, abychom Vám dodali kalendáře Draci.info do Vánoc :)
 
 Organizační tým projektů Draci.info""".format(year=year))
 
