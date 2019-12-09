@@ -40,22 +40,22 @@ class Command(BaseCommand):
 
         blacklist = get_emails_from_file('blacklist.txt')
 
-        mail_group = MailGroup.MEMBERS
+        mail_group = MailGroup.CUSTOMERS
 
         sent_emails = set()
         emails = set()
         if mail_group == MailGroup.CUSTOMERS:
             # substract member mails from customer mails
             sent_emails = get_emails_from_file('member_mails.txt')
-            emails.update(list(CustomOrder.objects.filter(personal_information_consent=True, language_code='cs').values_list('email', flat=True)))
+            emails.update(list(CustomOrder.objects.filter(status=CustomOrder.PAID, personal_information_consent=True, language_code='cs').values_list('email', flat=True)))
             emails.update(list(NewsletterSubscription.objects.values_list('email', flat=True)))
         elif mail_group == MailGroup.MEMBERS:
             emails = get_emails_from_file('member_mails.txt')
 
+        print len(emails)
         emails -= sent_emails
         emails -= blacklist
         count = len(emails)
-        print emails
         print count
         if send_test:
             emails = [
@@ -160,12 +160,15 @@ Těšíme se na Vaše objednávky.
 Organizační tým projektů Draci.info""".format(year=year))
 
         email_almost_sent = (
-                u"Kalendáře Draci.info %s budou již brzy" % year,
+                u"Kalendáře Draci.info %s budou již tento týden" % year,
             u"""Krásný den!
 
-Omlouváme se za zpoždění, museli jsme učinit pár změn s naším letošním tiskařem, ovšem kalendáře jsou již zadané k tisku a začneme je rozesílat hned jak budou hotové, tedy v průběhu příštích dvou týdnů.
+Moc se omlouváme za zpoždění, museli jsme učinit pár změn s naším letošním tiskařem. Kalendáře se již tisknou a začneme je rozesílat tento týden.
 
-Děkujeme Vám za trpělivost, uděláme vše pro to, abychom Vám dodali kalendáře Draci.info do Vánoc :)
+Také se omlouváme především lidem (a drakům), co si objednali náš kalendář ještě v listopadu za mylnou informaci v emailu o přijetí platby, že můžete kalendáře očekávat v nejbližších dnech.
+To bohužel vzhledem k termínu tisku nebyla pravda. Chyba se stala kvůli špatnému nastavení ukončení předobjednávek - ty měly pokračovat, až dokud nebudou kalendáře vytištěné.
+
+Děkujeme Vám za trpělivost a uděláme vše pro to, abychom Vám dodali kalendáře Draci.info do Vánoc :)
 
 Organizační tým projektů Draci.info""".format(year=year))
 
@@ -211,7 +214,7 @@ Přejeme Vám veselý Dračí rok 2019!
 
 Organizační tým projektů Draci.info""".format(year=year))
 
-        current_email = email_members2
+        current_email = email_almost_sent
         subject = ('TEST ' if send_test else '') + current_email[0]
         text = current_email[1]
 
