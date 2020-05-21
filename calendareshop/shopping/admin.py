@@ -15,6 +15,7 @@ from modeltranslation.admin import TranslationAdmin
 
 from . import models
 from notifications import SendCompletedHandler
+from import_export.admin import ExportActionMixin
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +42,7 @@ class CustomOrderItemInline(OrderItemInline):
     exclude = ['product', 'sku', '_unit_price', '_unit_tax', 'tax_rate', 'tax_class', '_line_item_tax', '_line_item_price', '_line_item_discount', 'data']
 
 
-class CustomOrderAdmin(OrderAdmin):
+class CustomOrderAdmin(ExportActionMixin, OrderAdmin):
     inlines = [CustomOrderItemInline, OrderStatusInline]
     list_display = (
         'admin_order_id', 'created', 'full_name', 'email', 'status', 'total_custom',

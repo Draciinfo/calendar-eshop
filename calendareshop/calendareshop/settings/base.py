@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'adminsortable',
     'compressor',
     'post_office',
+    'import_export',
 )
 
 MIDDLEWARE_CLASSES = (
