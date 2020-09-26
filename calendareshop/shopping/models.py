@@ -244,7 +244,7 @@ class Shipping(models.Model):
             try:
                 return int(ship_reg.shipping_region_prices.get(currency=currency).unit_price)
             except ShippingRegionPrice.DoesNotExist:
-                raise LookupError("Price for country %s, shipping %s, quantity %s and currency %s is missing, add it please!" % (country_code, self, quantity, currency))
+                raise LookupError("Price for country %s, shipping %s, quantity %s and currency %s is missing, add it please!" % (country_code, str(self).decode('utf8'), quantity, currency))
         return 0
 
 
