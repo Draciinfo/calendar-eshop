@@ -426,6 +426,7 @@ header .intro-text .intro-lead-in {
     font-size: 22px;
     line-height: 22px;
     color: #fff;
+    text-shadow: 2px 2px 5px #0000005e;
 }
 
 header .intro-text .intro-heading {
@@ -435,6 +436,7 @@ header .intro-text .intro-heading {
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;
+    text-shadow: 2px 2px 5px #0000005e;
 }
 
 @media(min-width:768px) {
