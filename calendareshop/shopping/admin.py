@@ -46,7 +46,7 @@ class CustomOrderAdmin(ExportActionMixin, OrderAdmin):
     inlines = [CustomOrderItemInline, OrderStatusInline]
     list_display = (
         'admin_order_id', 'created', 'full_name', 'email', 'status', 'total_custom',
-        'admin_is_paid', 'shipping_type', 'payment_type', 'additional_info')
+        'admin_is_paid', 'shipping_type', 'payment_type', 'notes', 'additional_info')
     list_filter = ('status', 'shipping_type', 'payment_type', 'items__product')
     actions = [
         'complete_order',
