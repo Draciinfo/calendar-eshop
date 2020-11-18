@@ -97,6 +97,11 @@ you will receive more information about precise location and pick-up times after
                                     {%endif%}
                                 {%endfor%}
                             </span>
+                            {%if item.0 == 3%}
+                                <div style="font-size: 12px; font-weight: normal; padding-left: 45px;">
+                                {%trans "Do poznámky prosím uveďte zvolené <a href='https://www.zasilkovna.cz/pobocky' target='_blank'>výdejní místo Zásilkovny</a> a tel. číslo pro SMS o doručení."%}
+                                </div>
+                            {%endif%}
                         </label>
                     </div>
                 {%endfor%}
