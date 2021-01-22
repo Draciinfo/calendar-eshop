@@ -1,7 +1,10 @@
 *.py[cod]
 *.swp
+*.sql
+*.csv
 
 calendareshop/calendareshop/settings/local.py
 calendareshop/media/*
+calendareshop/static-collected/*
 dbfile
 /static/
