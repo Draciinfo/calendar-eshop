@@ -1,6 +1,7 @@
 Django>=1.8.14,<1.9
 MySQL-python==1.2.5
 Pillow==2.9.0
+django-appconf==1.0.2
 django-ckeditor==5.0.2
 django-autoslug==1.8.0
 django-modeltranslation==0.10.1
@@ -10,6 +11,9 @@ django-nginx-image==0.3.2
 django-admin-sortable==2.0.19
 django-dbbackup==3.3.0
 django-compressor==2.1.1
+django-countries==3.4.1
 python-memcached==1.58
 django-post_office==3.0.4
 django-import-export==1.2.0
+reportlab==3.3.0
+jsonfield==2.0.2
