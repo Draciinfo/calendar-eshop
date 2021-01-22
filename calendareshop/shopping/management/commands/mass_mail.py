@@ -59,10 +59,11 @@ class Command(BaseCommand):
         print count
         if send_test:
             emails = [
-                'flaiming@gmail.com',
-                'kitty@draci.info',
-                'exander77@gmail.com',
-                'kaarhai@gmail.com',
+                    #'flaiming@gmail.com',
+                'vojtech@leadspicker.com',
+                #'kitty@draci.info',
+                #'exander77@gmail.com',
+                #'kaarhai@gmail.com',
             ]
             count = len(emails)
         logger.info('Total of emails that will be send: %s', count)
@@ -214,7 +215,21 @@ Přejeme Vám veselý Dračí rok 2019!
 
 Organizační tým projektů Draci.info""".format(year=year))
 
-        current_email = email_almost_sent
+        email_very_late = (
+                u"Kalendáře Draci.info %s i letos!" % year,
+            u"""Krásný den,
+
+nakonec i letos jsme stihli vytvořit stolní a nástěnný kalendář Draci.info :)
+V našem <a href="https://kalendar.draci.info/">e-shopu</a> si můžete objednat jak tyto kalendáře, tak i balíčky s pexesem nebo dračí omalovánkou.
+
+Také zde najdete zvýhodněný balíček kalendáře 2021 se starším kalendářem 2020 (můžete si vystřihnout obrázky).
+
+Objednávky se pokusíme odeslat co nejdříve od zaplacení, aby ještě stihly přijít do Vánoc.
+
+Organizační tým projektů Draci.info""".format(year=year))
+
+
+        current_email = email_very_late
         subject = ('TEST ' if send_test else '') + current_email[0]
         text = current_email[1]
 

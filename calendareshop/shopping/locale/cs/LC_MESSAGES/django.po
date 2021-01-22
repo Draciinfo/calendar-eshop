@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-01 15:51+0100\n"
+"POT-Creation-Date: 2020-11-18 16:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: admin.py:65 templates/plata/_order_overview.html:3
+#: admin.py:66 templates/plata/_order_overview.html:3
 #: templates/plata/notifications/order_completed.html:46
 #: templates/plata/notifications/order_confirmed.html:165
 #: templates/plata/notifications/order_paid.html:62
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Billing address"
 msgstr "Fakturační adresa"
 
-#: admin.py:68 templates/plata/_order_overview.html:6
+#: admin.py:69 templates/plata/_order_overview.html:6
 #: templates/plata/notifications/order_completed.html:52
 #: templates/plata/notifications/order_confirmed.html:171
 #: templates/plata/notifications/order_paid.html:68
@@ -32,25 +32,25 @@ msgstr "Fakturační adresa"
 msgid "Shipping address"
 msgstr "Poštovní adresa"
 
-#: admin.py:73 templates/plata/_order_overview.html:17
+#: admin.py:74 templates/plata/_order_overview.html:17
 msgid "Order items"
 msgstr "Položky objednávky"
 
-#: admin.py:76
+#: admin.py:77
 msgid "Shipping"
 msgstr "Doprava"
 
-#: admin.py:79 templates/payment/ogone_form.html:6
+#: admin.py:80 templates/payment/ogone_form.html:6
 #: templates/payment/paypal_form.html:6
 #: templates/payment/postfinance_form.html:6
 msgid "Payment"
 msgstr "Platba"
 
-#: admin.py:82 templates/plata/_order_overview.html:51
+#: admin.py:83 templates/plata/_order_overview.html:51
 msgid "Total"
 msgstr "Celkem"
 
-#: admin.py:124
+#: admin.py:125
 msgid "Full shipping address"
 msgstr "Celá poštovní adresa"
 
@@ -254,7 +254,7 @@ msgstr "Hotovost"
 msgid "Please correct the following errors:"
 msgstr "Opravte prosím následující chyby:"
 
-#: templates/_form_errors.html:8 templates/_form_errors.html:24
+#: templates/_form_errors.html:8 templates/_form_errors.html.py:24
 msgid "Form errors"
 msgstr "Chyby formuláře"
 
@@ -289,7 +289,7 @@ msgstr ""
 
 #: templates/plata/_order_overview.html:10
 #: templates/plata/notifications/order_confirmed.html:146
-#: templates/plata/shop_shipping_payment.html:138
+#: templates/plata/shop_shipping_payment.html:143
 msgid "Notes"
 msgstr "Poznámky"
 
@@ -299,7 +299,7 @@ msgid "Shipping method"
 msgstr "Způsob doručení"
 
 #: templates/plata/_order_overview.html:32
-#: templates/plata/shop_shipping_payment.html:110
+#: templates/plata/shop_shipping_payment.html:115
 msgid "Payment method"
 msgstr "Způsob platby"
 
@@ -319,11 +319,6 @@ msgid "discount"
 msgstr "sleva"
 
 #: templates/plata/_order_overview.html:72
-#: templates/plata/notifications/order_confirmed.html:134
-msgid "tax from total amount"
-msgstr "z toho DPH"
-
-#: templates/plata/_order_overview.html:76
 #: templates/plata/notifications/order_confirmed.html:130
 msgid "total"
 msgstr "celkem"
@@ -447,9 +442,6 @@ msgid "We will inform you when we receive your payment."
 msgstr "O připsání částky na náš účet Vás budeme informovat."
 
 #: templates/plata/notifications/order_confirmed.html:65
-#| msgid ""
-#| "This is pre-order, so actual calendars will be sent/can be picked up by "
-#| "the end of November."
 msgid ""
 "This is pre-order, so actual calendars will be sent/can be picked up by the "
 "beginning of December."
@@ -507,6 +499,10 @@ msgstr "Cena celkem"
 msgid "pcs"
 msgstr "ks"
 
+#: templates/plata/notifications/order_confirmed.html:134
+msgid "tax from total amount"
+msgstr "z toho DPH"
+
 #: templates/plata/notifications/order_paid.html:1
 msgid "Order from calendar.draci.info paid"
 msgstr "Objednávka z kalendar.draci.info zaplacena"
@@ -523,7 +519,6 @@ msgstr ""
 "Vaše objednávka %(order_id)s z kalendar.draci.info byla zaplacena.\n"
 
 #: templates/plata/notifications/order_paid.html:20
-#| msgid "The goods will be sent by the end of November."
 msgid "The goods will be sent by beginning of December."
 msgstr "Produkty budou rozeslány na začátku prosince."
 
@@ -552,11 +547,6 @@ msgstr ""
 "            "
 
 #: templates/plata/notifications/order_paid.html:32
-#| msgid ""
-#| "\n"
-#| "Calendars will be ready at the end of November. We will tne contact you "
-#| "about specific date and time of pick-up.\n"
-#| "            "
 msgid ""
 "\n"
 "Calendars will be ready at the beginning of December. We will tne contact "
@@ -577,7 +567,7 @@ msgstr ""
 "Zvolili jste osobní předání. Co nevidět Vás kontaktuje náš prodejce a "
 "domluví se s Vámi na datu a hodině předání."
 
-#: templates/plata/shop_cart.html:5 templates/plata/shop_cart.html:11
+#: templates/plata/shop_cart.html:5 templates/plata/shop_cart.html.py:11
 #: templates/plata/shop_checkout.html:11
 #: templates/plata/shop_order_payment_failure.html:10
 #: templates/plata/shop_shipping_payment.html:65
@@ -605,7 +595,7 @@ msgid "Recount"
 msgstr "Přepočítat"
 
 #: templates/plata/shop_cart.html:45 templates/plata/shop_checkout.html:112
-#: templates/plata/shop_shipping_payment.html:145
+#: templates/plata/shop_shipping_payment.html:150
 msgid "Continue"
 msgstr "Pokračovat"
 
@@ -675,13 +665,6 @@ msgstr ""
 "E-mailem jsme Vám zaslali rekapitulaci objednávky a instrukce k platbě."
 
 #: templates/plata/shop_order_success.html:25
-#| msgid ""
-#| "\n"
-#| "        This is pre-order. We will send you ordered goods at the end of "
-#| "November. \n"
-#| "        Nevertheless please pay this order before that, so you won't "
-#| "forget (if you haven't already done that) :)\n"
-#| "        "
 msgid ""
 "\n"
 "        This is pre-order. We will send you ordered goods at the beginning "
@@ -691,9 +674,9 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"Toto je předobjednávka. Objednané zboží zašleme začátkem prosince. Objednávku "
-"ale prosím zaplaťte už teď, ať na to potom nezapomenete (pokud jste ji již "
-"nezaplatili) :)\n"
+"Toto je předobjednávka. Objednané zboží zašleme začátkem prosince. "
+"Objednávku ale prosím zaplaťte už teď, ať na to potom nezapomenete (pokud "
+"jste ji již nezaplatili) :)\n"
 "        "
 
 #: templates/plata/shop_shipping_payment.html:5
@@ -706,13 +689,24 @@ msgid "confirmation"
 msgstr "Potvrzení objednávky"
 
 #: templates/plata/shop_shipping_payment.html:93
+#| msgid ""
+#| "Delivery only after personal confirmation in Prague Vrsovice,\n"
+#| "you will receive more information about precise location and pick-up "
+#| "times after finishing the order process."
 msgid ""
-"Delivery only after personal confirmation in Prague Vrsovice,\n"
+"Delivery only in Prague after personal confirmation,\n"
 "you will receive more information about precise location and pick-up times "
 "after finishing the order process."
 msgstr ""
-"Osobně po domluvě v Praze Vršovicích, bližší informace o adrese a možných "
+"Osobně po domluvě v Praze, bližší informace o adrese a možných "
 "časech předání dostanete e-mailem po dokončení objednávky."
+
+#: templates/plata/shop_shipping_payment.html:102
+msgid ""
+"Do poznámky prosím uveďte zvolené <a href='https://www.zasilkovna.cz/"
+"pobocky' target='_blank'>výdejní místo Zásilkovny</a> a tel. číslo pro SMS o "
+"doručení."
+msgstr ""
 
 #: templates/product/product_detail.html:5
 #: templates/product/product_list.html:5 templates/product/product_list.html:8

@@ -286,7 +286,7 @@ class Country(models.Model):
                 uncategorized.append((country.pk, country.name))
             elif region.code == 'SK':
                 country = region.countries.first()
-                uncategorized.append((country.pk, country.name))
+                #uncategorized.append((country.pk, country.name))
             else:
                 categorized[region.name] = tuple(region.countries.values_list('pk', 'name'))
         return uncategorized + categorized.items()
