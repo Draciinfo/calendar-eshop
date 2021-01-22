@@ -158,7 +158,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "..", "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static-collected")
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -347,6 +347,6 @@ DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': '/backups/kalendar.draci.info'}
 
 # VOTING
-VOTING_END_MONTH_DAY = (9, 26)
+VOTING_END_MONTH_DAY = (11, 5)
 
 PERSONAL_INFORMATION_CONSENT_YEARS = 20

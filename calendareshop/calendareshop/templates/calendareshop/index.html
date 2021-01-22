@@ -133,6 +133,19 @@ They will be printed and sent to you by the end of October.
                 </div>
             </div>
             <div class="row text-center product-list">
+                {%comment%}
+                {% get_current_language as LANGUAGE_CODE %}
+                <div class="well">
+                    {%if LANGUAGE_CODE == 'cs'%}
+                    Všechny stolní kalendáře pro rok 2021 jsou momentálně vyprodané. Pro přetrvávající zájem však chystáme dotisk!
+                    Pokud chcete mít svůj kalendář jistý, předobjednejte si jej do konce listopadu. Poté už bude k dispozici jen velmi omezené množství zásob.
+                    Kalendáře budou zhotoveny a rozeslány do poloviny prosince, aby mohly být na Vánoce s Vámi.
+                    {%else%}
+                    We are sorry to announce that the initial run of copies of the 2021 desk calendars is sold out. Although, thanks to larger interest we are offering a reprint!
+                    If you want to be sure, pre-order your calendars before the end of November. Afterwards, there will only be a limited amount of pieces available. The calendars will be printed and sent by December 15th, so that they will arrive in time for Christmas.
+                    {%endif%}
+                </div>
+                {%endcomment%}
                 {% for product in products %}
                 <div class="product">
                     <img src="{{MEDIA_URL}}{{product.image}}" />
@@ -198,6 +211,8 @@ They will be printed and sent to you by the end of October.
                                 <input type="button" value="{% trans "Sold out" %}" class="btn btn-not-available" />
                             {%endif%}
                         </form>
+
+
                     </div>
                     {% endfor %}
                 </div>
