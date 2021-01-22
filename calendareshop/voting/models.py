@@ -96,17 +96,17 @@ class Season:
     WINTER = 'winter'
     CHOICES = (
         (INTRO, 'úvod'),
-        (SPRING, 'jaro'),
-        (SUMMER, 'léto'),
-        (AUTUMN, 'podzim'),
-        (WINTER, 'zima'),
+        (SPRING, 'měsíce'),
+        #(SUMMER, 'léto'),
+        #(AUTUMN, 'podzim'),
+        #(WINTER, 'zima'),
     )
     CHOICES_MONTHS = (
         (INTRO, [Month.INTRO]),
-        (SPRING, [Month.MARCH, Month.APRIL, Month.MAY]),
-        (SUMMER, [Month.JUN, Month.JULY, Month.AUGUST]),
-        (AUTUMN, [Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER]),
-        (WINTER, [Month.DECEMBER, Month.JANUARY, Month.FEBRUARY]),
+        (SPRING, [Month.MARCH, Month.APRIL, Month.MAY, Month.JUN, Month.JULY, Month.AUGUST, Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER, Month.DECEMBER, Month.JANUARY, Month.FEBRUARY]),
+        #(SUMMER, [Month.JUN, Month.JULY, Month.AUGUST]),
+        #(AUTUMN, [Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER]),
+        #(WINTER, [Month.DECEMBER, Month.JANUARY, Month.FEBRUARY]),
     )
 
     @classmethod

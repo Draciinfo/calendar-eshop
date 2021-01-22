@@ -1,7 +1,6 @@
 {%extends "calendareshop/base_static.html"%}
 
 {%block static_title%}Hlasování{%endblock%}
-{%block static_heading%}Hlasování{%endblock%}
 
 {%block additional_js%}
 <script src="{{STATIC_URL}}js/jquery-ui.min.js"></script>
@@ -88,6 +87,10 @@ $(document).ready(function(){
 <link rel="stylesheet" href="{{STATIC_URL}}css/jquery-ui.min.css">
 <link rel="stylesheet" href="{{STATIC_URL}}css/lightbox.min.css">
 <style>
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
 .dragged img {
     width: 300px !important;
 }
@@ -109,8 +112,15 @@ $(document).ready(function(){
 #inputs .btn-primary {
     padding: 5px 20px;
 }
+#inputs h2 {
+    margin: 30px 0 0 0;
+}
 #candidates .draggable {
     margin: 0 15px 15px 0;
+}
+.candidates-panel {
+    position: fixed;
+    width: inherit;
 }
 .img-overlay {
 	position: absolute;
@@ -141,80 +151,124 @@ $(document).ready(function(){
 </style>
 {%endblock%}
 
-{%block content%}
-    
-    {%if voting_ended%}
-            <div class="alert alert-danger">Hlasování bylo pro tento rok již ukončeno.</div>
-    {%else%}
-
-    <p>Prohlédni si všechny přihlášené obrázky a vyber z nich své favority. Vybírej uvážlivě takové obrázky, které se ti zdají pro náš kalendář nejreprezentativnější a nespoléhej se na to, že některý obrázek určitě dostane dostatek hlasů i bez tvého přičinění.
-    </p>
-    <p>Jednotlivé sekce hlasování jsou rozděleny do záložek. Dole vždy najdeš náhledy všech přihlášených obrázků, z kterých můžeš vybírat. Pokud si chceš prohlédnout obrázek ve větší velikosti, klikni na ikonu lupy po najetí na náhled. Vybrané obrázky přiřazuj ke konkrétním měsícům pomocí přetažení myší. Jakmile přiřadíš všechny obrázky, pečlivě si svůj výběr zkontroluj a dej uložit hlasování. 
-    </p>
-    <p>Své hlasy prosím odešli <strong>nejpozději do půlnoci {{voting_end_month_day.1}}.{{voting_end_month_day.0}}.{{year}}</strong> nebo nebudou započítány.
-    </p>
-    <br />
-        {%if errors%}
-            {%for error in errors%}
-                <div class="alert alert-danger">{{error}}</div>
-            {%endfor%}
-        {%elif voting_finished%}
-            <div class="alert alert-success">Všechny hlasy odeslány, děkujeme :) Dokud probíhá hlasování, můžete svůj hlas ještě změnit.</div>
-        {%endif%}
-        <form method="post" action="" id="inputs">
-            {%csrf_token%}
-            <button type="submit" id="vtn-vote" class="btn btn-primary pull-right">Uložit hlasování</button>
-
-            <ul class="nav nav-tabs" role="tablist" id="tabs-menu">
-                {%for id, name in seasons%}
-                    {%if id not in own_seasons%}
-                    <li role="presentation" class="{%if active_season == id%}active{%endif%}">
-                        <a href="#{{id}}" aria-controls="{{id}}" role="tab" data-toggle="tab">{{name}}</a>
-                    </li>
-                    {%endif%}
-                {%endfor%}
-            </ul>
-
-            <br />
-            <div class="tab-content">
-                {%for season, months in month_dict.items%}
-                <div role="tabpanel" class="tab-pane {%if season == active_season%}active{%endif%}" id="{{season}}">
-                    <div class="row">
-                    {%for month_id, month in months.items%}
-                    <div class="col-md-4">
-                        <h2 class="panel-title">{{month}}</h2>
-                        <div class="droppable chosen clearfix" data-month="{{month_id}}">
-                            {%for selected_month, image in votes.items%}
-                                {%if selected_month == month_id %}
-                                    {%include 'voting/image.html' with cols=12 class=''%}
-                                    <input type="hidden" name="selection[]" value="{{image.id}}-{{selected_month}}" data-image="{{image.id}}"/>
-                                {%endif%}
-                            {%endfor%}
-                        </div>
-                    </div>
-                    {%endfor%}
-                    </div>
-                    
-                    <br />
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Kandidáti</h3>
-                        </div>
-                        <div class="panel-body droppable" id="candidates">
-                            {%for image in voted_images%}
-                                {%if image.season == season%}
-                                    {%include 'voting/image.html' with cols=2 class=''%}
-                                {%endif%}
-                            {%endfor%}
-                        </div>
-                    </div>
-
-                </div>
-                {%endfor%}
+{%block main_content%}
+<section id="shop">
+    <div class="container container-full">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-heading">Hlasování</h2>
             </div>
-        </form>
+        </div>
+        {%if voting_ended%}
+        <div class="row">
+            <div class="col-md-12">
 
-    {%endif%}
+                <div class="alert alert-danger">Hlasování bylo pro tento rok již ukončeno.</div>
+
+            </div>
+        </div>
+
+        {%else%}
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <p>Prohlédni si všechny přihlášené obrázky a vyber z nich své favority. Vybírej uvážlivě takové obrázky, které se ti zdají pro náš kalendář nejreprezentativnější a nespoléhej se na to, že některý obrázek určitě dostane dostatek hlasů i bez tvého přičinění.
+                    </p>
+                    <p>Jednotlivé sekce hlasování jsou rozděleny do záložek. Dole vždy najdeš náhledy všech přihlášených obrázků, z kterých můžeš vybírat. Pokud si chceš prohlédnout obrázek ve větší velikosti, klikni na ikonu lupy po najetí na náhled. Vybrané obrázky přiřazuj ke konkrétním měsícům pomocí přetažení myší. Jakmile přiřadíš všechny obrázky, pečlivě si svůj výběr zkontroluj a dej uložit hlasování. 
+                    </p>
+                    <p>Své hlasy prosím odešli <strong>nejpozději do půlnoci {{voting_end_month_day.1}}.{{voting_end_month_day.0}}.{{year}}</strong> nebo nebudou započítány.
+                    </p>
+                    <br />
+                    {%if errors%}
+                        {%for error in errors%}
+                            <div class="alert alert-danger">{{error}}</div>
+                        {%endfor%}
+                    {%elif voting_finished%}
+                        <div class="alert alert-success">Všechny hlasy odeslány, děkujeme :) Dokud probíhá hlasování, můžete svůj hlas ještě změnit.</div>
+                    {%endif%}
+                </div>
+            </div>
+
+            <div class="col-md-12">
+
+                <form method="post" action="" id="inputs">
+                    {%csrf_token%}
+                    <button type="submit" id="vtn-vote" class="btn btn-primary pull-right">Uložit hlasování</button>
+
+                    <ul class="nav nav-tabs" role="tablist" id="tabs-menu">
+                        {%for id, name in seasons%}
+                            {%if id not in own_seasons%}
+                            <li role="presentation" class="{%if active_season == id%}active{%endif%}">
+                                <a href="#{{id}}" aria-controls="{{id}}" role="tab" data-toggle="tab">{{name}}</a>
+                            </li>
+                            {%endif%}
+                        {%endfor%}
+                    </ul>
+
+                    <br />
+                    <div class="tab-content">
+                        {%for season, months in month_dict.items%}
+                        <div role="tabpanel" class="tab-pane {%if season == active_season%}active{%endif%}" id="{{season}}">
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="row">
+
+                                    {%for month_id, month in months.items%}
+                                    <div class="col-md-4">
+                                        <h2 class="panel-title">{{month}}</h2>
+                                        <div class="droppable chosen clearfix" data-month="{{month_id}}">
+                                            {%for selected_month, image in votes.items%}
+                                                {%if selected_month == month_id %}
+                                                    {%include 'voting/image.html' with cols=12 class=''%}
+                                                    <input type="hidden" name="selection[]" value="{{image.id}}-{{selected_month}}" data-image="{{image.id}}"/>
+                                                {%endif%}
+                                            {%endfor%}
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Kandidáti</h3>
+                                        </div>
+                                        <div class="panel-body droppable" id="candidates">
+                                            {%for image in voted_images%}
+                                                {%if image.season == season%}
+                                                    {%include 'voting/image.html' with cols=2 class=''%}
+                                                {%endif%}
+                                            {%endfor%}
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            
+
+                        </div>
+                        {%endfor%}
+                    </div>
+                </form>
+
+            </div>
+
+        {%endif%}
+
+        <div class="row">
+            <div class="col-md-8">
+
+            </div>
+        </div>
+    </div>
+</section>
+    
 
 {%endblock%}
 
