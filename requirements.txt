@@ -15,5 +15,5 @@ django-countries==3.4.1
 python-memcached==1.58
 django-post_office==3.0.4
 django-import-export==1.2.0
-reportlab==3.3.0
+reportlab==3.6.13
 jsonfield==2.0.2
