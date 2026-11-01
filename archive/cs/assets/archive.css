@@ -1,0 +1,48 @@
+/* Additions to the preserved calendar theme. */
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+.archive-notice {
+    margin: 0 0 48px;
+    padding: 20px 24px;
+    background: #fff4ce;
+    color: #342c19;
+    text-align: center;
+    border: 1px solid #dfca82;
+    border-radius: 4px;
+}
+.archive-notice p { margin: 4px 0; font-size: 16px; line-height: 1.5; }
+body > nav + .archive-notice { margin-top: 70px; }
+.archive-notice strong { font-size: 20px; }
+.archive-lightbox {
+    width: min(1200px, 96vw);
+    max-width: 96vw;
+    padding: 44px 12px 12px;
+    border: 0;
+    background: #171717;
+    color: white;
+    text-align: center;
+}
+.archive-lightbox::backdrop { background: rgb(0 0 0 / 85%); }
+.archive-lightbox img { max-width: 100%; max-height: 75vh; object-fit: contain; }
+.archive-lightbox p { margin: 10px 0 0; }
+.archive-lightbox button {
+    background: #fed136;
+    color: #222;
+    border: 0;
+    border-radius: 3px;
+    padding: 4px 14px;
+    font-size: 22px;
+}
+.archive-lightbox .close-image { position: absolute; top: 6px; right: 12px; }
+.archive-lightbox .image-controls { display: flex; justify-content: center; gap: 24px; margin-top: 12px; }
+.dropdown.open > .dropdown-menu { display: block; }
+.navbar-default.navbar-shrink { padding: 10px 0; background-color: #222; }
+.navbar-default.navbar-shrink .navbar-brand { font-size: 1.5em; }
+.footer-left { width: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (max-width: 767px) {
+    .navbar-collapse.in { display: block; }
+    .archive-notice { padding: 18px; margin-bottom: 32px; }
+    .archive-notice p { font-size: 15px; }
+    .navbar-nav .open .dropdown-menu { position: static; float: none; width: auto; background: #222; }
+    .navbar-nav .dropdown-menu > li > a { color: #fff; padding: 8px 25px; }
+}

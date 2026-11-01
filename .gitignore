@@ -8,3 +8,9 @@ calendareshop/media/*
 calendareshop/static-collected/*
 dbfile
 /static/
+
+# Static archive exporter: temporary downloads and Python tooling.
+/.archive-cache/
+/.archive-build-*/
+/.venv-archive/
+__pycache__/

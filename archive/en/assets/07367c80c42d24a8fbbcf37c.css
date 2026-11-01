@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  src: url("/assets/43a4f8512d9a40d4a7a0461d.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  src: url("/assets/d08107975401ffaf873f6fdf.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/84909be1eaa01505c6c3da47.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/73649b6a90c32cb7d9efa25c.ttf") format('truetype');
+}

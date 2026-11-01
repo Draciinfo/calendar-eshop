@@ -1,0 +1,22 @@
+
+.fancybox-nav span {
+    visibility: visible;
+}
+.fancybox-next span {
+    right: -40px;
+    background-position: 0 -71px;
+}
+.fancybox-prev span {
+    left: -40px;
+    background-position: 0 -35px;
+}
+.fancybox-close {
+    top: -3px;
+    right: -40px;
+}
+.fancybox-close {
+    height: 35px;
+}
+.fancybox-title-float-wrap .child {
+    background: none;
+}
